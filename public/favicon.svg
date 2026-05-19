@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- Coral gradient background -->
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#f43f5e"/>
+      <stop offset="100%" stop-color="#fb923c"/>
+    </linearGradient>
+  </defs>
+  <circle cx="32" cy="32" r="32" fill="url(#bg)"/>
+
+  <!-- Airplane silhouette, angled up-right -->
+  <g transform="translate(32,32) rotate(-40) translate(-20,-20)">
+    <!-- Main fuselage -->
+    <path d="M2 18 C2 18 18 14 28 10 C34 8 38 10 38 14 C38 18 34 20 28 20 L20 20 L16 28 L12 28 L14 20 L8 20 L6 24 L2 24 Z"
+          fill="white"/>
+  </g>
+
+  <!-- Motion trail dots -->
+  <circle cx="12" cy="50" r="3" fill="white" opacity="0.45"/>
+  <circle cx="19" cy="53" r="2.2" fill="white" opacity="0.3"/>
+  <circle cx="26" cy="55" r="1.5" fill="white" opacity="0.18"/>
+</svg>
