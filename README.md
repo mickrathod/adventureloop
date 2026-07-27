@@ -51,64 +51,6 @@ cd adventureloop
 npm install
 ```
 
-### Environment Variables
-
-Create a `.env` file at the project root:
-
-```env
-VITE_SUPABASE_URL=your_supabase_project_url
-VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
-VITE_SLACK_WEBHOOK_URL=your_slack_webhook_url   # optional
-```
-
-### Database Schema
-
-Create the following tables in your Supabase project:
-
-**`trips`**
-```sql
-create table trips (
-  id uuid primary key default gen_random_uuid(),
-  name text,
-  slug text unique,
-  destination text,
-  price numeric,
-  duration text,
-  batch_size int,
-  status text default 'active',
-  departure_date date,
-  images text[],
-  inclusions text[],
-  itinerary jsonb,
-  created_at timestamptz default now()
-);
-```
-
-**`bookings`**
-```sql
-create table bookings (
-  id uuid primary key default gen_random_uuid(),
-  trip_id uuid references trips(id),
-  trip_name text,
-  name text,
-  phone text,
-  email text,
-  travelers int,
-  message text,
-  type text default 'booking',   -- 'booking' | 'notify'
-  status text default 'new',     -- 'new' | 'contacted' | 'confirmed' | 'cancelled'
-  created_at timestamptz default now()
-);
-```
-
-**`site_config`**
-```sql
-create table site_config (
-  key text primary key,
-  value text
-);
-```
-
 ### Development
 
 ```bash
@@ -148,10 +90,6 @@ src/
 | Secondary (teal) | `#0F766E` |
 | Accent (orange) | `#F97316` |
 | Background (cream) | `#FFF7ED` |
-
-## Admin Access
-
-Navigate to `/admin` and log in with the credentials configured in your `site_config` table (key: `admin_password`). The default password can be set via the Site Config editor once logged in.
 
 ## License
 
